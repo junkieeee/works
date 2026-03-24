@@ -3,171 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umut Deniz Uslu | Portfolio</title>
+    <title>U.Deniz Uslu | Portfolio</title>
+    <!-- Google Fonts: Bebas Neue for Headings, Inter for Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBg: '#0A1F14',
+                        brandPrimary: '#D6FF4D',
+                        brandText: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        bebas: ['"Bebas Neue"', 'cursive'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        body { 
+            background-color: #0A1F14; 
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .nav-logo { 
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+        }
+        .custom-border {
+            border: 1px solid rgba(214, 255, 77, 0.2);
+        }
+        .card-hover:hover {
+            border-color: #D6FF4D;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        /* Custom selection color */
+        ::selection {
+            background: #D6FF4D;
+            color: #0A1F14;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="font-inter">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-[#0A1F14]/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold text-blue-600 tracking-tight">U.Deniz Uslu</span>
-            <div class="space-x-6 hidden md:block">
-                <a href="#home" class="hover:text-blue-600 transition">Start</a>
-                <a href="#about" class="hover:text-blue-600 transition">Über mich</a>
-                <a href="#projects" class="hover:text-blue-600 transition">Projekte</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Kontakt</a>
+            <span class="nav-logo text-2xl text-brandPrimary tracking-widest uppercase">Portfolio</span>
+            <div class="space-x-8 hidden md:flex font-semibold text-sm uppercase tracking-wider">
+                <a href="#home" class="hover:text-brandPrimary transition">Start</a>
+                <a href="#about" class="hover:text-brandPrimary transition">Über mich</a>
+                <a href="#projects" class="hover:text-brandPrimary transition">Projekte</a>
+                <a href="#skills" class="hover:text-brandPrimary transition">Skills</a>
+                <a href="#contact" class="text-brandPrimary border border-brandPrimary px-4 py-1 rounded hover:bg-brandPrimary hover:text-brandBg transition">Kontakt</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="gradient-bg text-white py-24 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6">
-                <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-semibold border border-blue-500/30">
-                    Bewerber für Ausbildung 2026/27
-                </span>
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                    Hallo, ich bin <span class="text-blue-400"> Umut Deniz Uslu</span>
-                </h1>
-                <p class="text-lg text-slate-300 max-w-2xl">
-                    Leidenschaftlicher Junior-Entwickler mit Fokus auf sauberen Code und Problemlösung. 
-                    Ich suche eine Herausforderung als **Fachinformatiker für Anwendungsentwicklung**.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#projects" class="bg-white text-slate-900 px-6 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">Projekte ansehen</a>
-                    <a href="#contact" class="border border-slate-500 px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition">Lebenslauf (PDF)</a>
-                </div>
-            </div>
-            <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl">
-                <!-- Profil resmi yerine placeholder -->
-                <div class="w-full h-full bg-slate-800 flex items-center justify-center text-5xl">👨‍💻</div>
+    <header id="home" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col items-start gap-6">
+            <h1 class="text-7xl md:text-9xl font-bold leading-none uppercase">
+                Ich bin <br><span class="text-brandPrimary"> Umut Deniz Uslu <span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl font-light">
+                Leidenschaftlicher Junior-Entwickler. Ich kombiniere sauberen Code mit modernem Design, um digitale Erlebnisse zu schaffen.
+            </p>
+            <div class="flex gap-6 mt-4">
+                <a href="#projects" class="bg-brandPrimary text-brandBg px-8 py-4 rounded-full font-bold uppercase tracking-tighter hover:scale-105 transition">Projekte ansehen</a>
+                <a href="#contact" class="flex items-center gap-2 text-white border-b border-brandPrimary pb-1 hover:text-brandPrimary transition">Lebenslauf PDF <i class="fa-solid fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-6 py-16">
         
-        <!-- Über mich Section -->
-        <section id="about" class="mb-24">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <i class="fa-solid fa-user text-blue-600"></i> Über mich
-            </h2>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 leading-relaxed text-slate-600">
-                <p class="mb-4">
-                    Meine Reise in die IT begann mit der Neugier, wie Webseiten funktionieren. Was als Hobby mit HTML und CSS begann, entwickelte sich schnell zu einer Leidenschaft für logisches Denken und Softwarearchitektur.
-                </p>
-                <p>
-                    Ich lerne derzeit eigenständig **JavaScript** und **Python**. Mein Ziel ist es, in einem professionellen Umfeld zu lernen und hochwertige Softwarelösungen zu entwickeln. Ich bin motiviert, teamorientiert und bereit, während der Ausbildung 100% Einsatz zu zeigen.
-                </p>
+        <!-- About Section -->
+        <section id="about" class="mb-32">
+            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Über mich</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-4 text-slate-300 leading-relaxed">
+                    <p>
+                        Mein Weg in die Informatik begann mit der Neugier, komplexe Probleme durch einfache, elegante Lösungen zu knacken. Ich lerne schnell und brenne darauf, in einem professionellen Team als <strong>Fachinformatiker</strong> durchzustarten.
+                    </p>
+                    <p>
+                        Ich fokussiere mich auf moderne Web-Technologien und lege Wert auf effizienten Code. In meiner Freizeit entwickle ich kleine Tools, die den Alltag erleichtern.
+                    </p>
+                </div>
+                <div class="custom-border p-4 rounded-3xl">
+                    <div class="bg-brandPrimary/10 h-64 rounded-2xl flex items-center justify-center text-brandPrimary">
+                        <i class="fa-solid fa-code-merge text-6xl"></i>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="mb-24">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <i class="fa-solid fa-code text-blue-600"></i> Tech Stack & Skills
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
-                    <i class="fa-brands fa-html5 text-orange-500 text-3xl"></i>
-                    <span class="font-medium text-sm">HTML5</span>
+        <section id="skills" class="mb-32">
+            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
+                    <i class="fa-brands fa-html5 text-brandPrimary text-4xl"></i>
+                    <span class="font-bold text-sm tracking-widest uppercase">HTML5</span>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
-                    <i class="fa-brands fa-css3-alt text-blue-500 text-3xl"></i>
-                    <span class="font-medium text-sm">CSS3 / Tailwind</span>
+                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
+                    <i class="fa-brands fa-js text-brandPrimary text-4xl"></i>
+                    <span class="font-bold text-sm tracking-widest uppercase">JavaScript</span>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
-                    <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
-                    <span class="font-medium text-sm">JavaScript (ES6+)</span>
+                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
+                    <i class="fa-brands fa-python text-brandPrimary text-4xl"></i>
+                    <span class="font-bold text-sm tracking-widest uppercase">Python</span>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
-                    <i class="fa-brands fa-github text-slate-900 text-3xl"></i>
-                    <span class="font-medium text-sm">Git / GitHub</span>
+                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
+                    <i class="fa-brands fa-git-alt text-brandPrimary text-4xl"></i>
+                    <span class="font-bold text-sm tracking-widest uppercase">Git</span>
                 </div>
             </div>
         </section>
 
-        <!-- Projekte Section -->
-        <section id="projects" class="mb-24">
-            <div class="flex justify-between items-end mb-8">
-                <h2 class="text-3xl font-bold flex items-center gap-3">
-                    <i class="fa-solid fa-laptop-code text-blue-600"></i> Projekte
-                </h2>
-                <a href="#" class="text-blue-600 hover:underline font-medium">Alle auf GitHub →</a>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden card-hover">
-                    <div class="h-48 bg-slate-200 flex items-center justify-center text-slate-400">
-                        <i class="fa-solid fa-cloud-sun text-5xl"></i>
+        <!-- Projects Section -->
+        <section id="projects" class="mb-32">
+            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Projekte</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Project 1 -->
+                <div class="group">
+                    <div class="bg-white/5 h-64 rounded-3xl mb-6 custom-border overflow-hidden flex items-center justify-center group-hover:border-brandPrimary transition">
+                        <i class="fa-solid fa-terminal text-5xl text-brandPrimary/30 group-hover:text-brandPrimary transition"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Wetter-Dashboard</h3>
-                        <p class="text-slate-600 mb-4 text-sm">
-                            Eine Anwendung, die Live-Daten von einer OpenWeather-API abruft und dynamisch anzeigt.
-                        </p>
-                        <div class="flex gap-2 mb-4">
-                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">JavaScript</span>
-                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">API</span>
-                        </div>
-                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
-                            Code ansehen <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-2xl mb-2 uppercase">Wetter Dashboard</h3>
+                    <p class="text-slate-400 text-sm mb-4">REST-API Integration mit dynamischer UI.</p>
+                    <a href="#" class="text-brandPrimary font-bold text-xs tracking-widest uppercase border-b border-brandPrimary">View Code</a>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden card-hover">
-                    <div class="h-48 bg-slate-200 flex items-center justify-center text-slate-400">
-                        <i class="fa-solid fa-list-check text-5xl"></i>
+                <!-- Project 2 -->
+                <div class="group">
+                    <div class="bg-white/5 h-64 rounded-3xl mb-6 custom-border overflow-hidden flex items-center justify-center group-hover:border-brandPrimary transition">
+                        <i class="fa-solid fa-database text-5xl text-brandPrimary/30 group-hover:text-brandPrimary transition"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Smart Todo-App</h3>
-                        <p class="text-slate-600 mb-4 text-sm">
-                            Ein Aufgabenverwalter mit Kategorien und Speicherung im Browser (LocalStorage).
-                        </p>
-                        <div class="flex gap-2 mb-4">
-                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">HTML</span>
-                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">CSS</span>
-                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">JS</span>
-                        </div>
-                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
-                            Code ansehen <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-2xl mb-2 uppercase">Task Manager</h3>
+                    <p class="text-slate-400 text-sm mb-4">Local Storage basierte CRUD Anwendung.</p>
+                    <a href="#" class="text-brandPrimary font-bold text-xs tracking-widest uppercase border-b border-brandPrimary">View Code</a>
                 </div>
             </div>
         </section>
 
-        <!-- Kontakt Section -->
-        <section id="contact" class="bg-blue-600 rounded-3xl p-8 md:p-12 text-white text-center">
-            <h2 class="text-3xl font-bold mb-4">Bereit für ein Gespräch?</h2>
-            <p class="mb-8 opacity-90 max-w-xl mx-auto">
-                Ich bin derzeit auf der Suche nach einem Ausbildungsplatz für 2024. Gerne sende ich Ihnen meine vollständigen Bewerbungsunterlagen zu.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="mailto:deinname@email.com" class="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition flex items-center gap-2">
-                    <i class="fa-solid fa-envelope"></i> E-Mail schreiben
-                </a>
-                <a href="#" class="bg-blue-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-900 transition flex items-center gap-2 border border-blue-400/30">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                </a>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 border-t border-white/10 text-center">
+            <h2 class="text-6xl md:text-8xl mb-6 uppercase leading-none">Bereit für den <br><span class="text-brandPrimary italic">Nächsten Schritt?</span></h2>
+            <p class="text-slate-400 mb-10 max-w-lg mx-auto uppercase tracking-tighter">Ich freue mich über Ihre Kontaktaufnahme bezüglich eines Ausbildungsplatzes.</p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a href="mailto:deinname@email.com" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">E-Mail</a>
+                <a href="#" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">LinkedIn</a>
+                <a href="#" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">GitHub</a>
             </div>
         </section>
 
     </main>
 
-    <footer class="py-12 text-center text-slate-500 text-sm border-t border-slate-200">
-        <p>&copy; 2024 Umut Deniz Uslu - Portoflio</p>
+    <footer class="py-10 text-center text-slate-600 text-[10px] tracking-[0.3em] uppercase">
+        &copy; 2026 U.Deniz Uslu // Portfolio
     </footer>
 
 </body>
