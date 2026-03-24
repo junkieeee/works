@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ausbildung zum Fachinformatiker</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold text-blue-600 tracking-tight">DEV.PORTFOLIO</span>
+            <div class="space-x-6 hidden md:block">
+                <a href="#home" class="hover:text-blue-600 transition">Start</a>
+                <a href="#about" class="hover:text-blue-600 transition">Über mich</a>
+                <a href="#projects" class="hover:text-blue-600 transition">Projekte</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="gradient-bg text-white py-24 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6">
+                <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-semibold border border-blue-500/30">
+                    Bewerber für Ausbildung 2024/25
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Hallo, ich bin <span class="text-blue-400">[Adın Soyadın]</span>
+                </h1>
+                <p class="text-lg text-slate-300 max-w-2xl">
+                    Leidenschaftlicher Junior-Entwickler mit Fokus auf sauberen Code und Problemlösung. 
+                    Ich suche eine Herausforderung als **Fachinformatiker für Anwendungsentwicklung**.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-white text-slate-900 px-6 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">Projekte ansehen</a>
+                    <a href="#contact" class="border border-slate-500 px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition">Lebenslauf (PDF)</a>
+                </div>
+            </div>
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl">
+                <!-- Profil resmi yerine placeholder -->
+                <div class="w-full h-full bg-slate-800 flex items-center justify-center text-5xl">👨‍💻</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16">
+        
+        <!-- Über mich Section -->
+        <section id="about" class="mb-24">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <i class="fa-solid fa-user text-blue-600"></i> Über mich
+            </h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 leading-relaxed text-slate-600">
+                <p class="mb-4">
+                    Meine Reise in die IT begann mit der Neugier, wie Webseiten funktionieren. Was als Hobby mit HTML und CSS begann, entwickelte sich schnell zu einer Leidenschaft für logisches Denken und Softwarearchitektur.
+                </p>
+                <p>
+                    Ich lerne derzeit eigenständig **JavaScript** und **Python**. Mein Ziel ist es, in einem professionellen Umfeld zu lernen und hochwertige Softwarelösungen zu entwickeln. Ich bin motiviert, teamorientiert und bereit, während der Ausbildung 100% Einsatz zu zeigen.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-24">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <i class="fa-solid fa-code text-blue-600"></i> Tech Stack & Skills
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
+                    <i class="fa-brands fa-html5 text-orange-500 text-3xl"></i>
+                    <span class="font-medium text-sm">HTML5</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
+                    <i class="fa-brands fa-css3-alt text-blue-500 text-3xl"></i>
+                    <span class="font-medium text-sm">CSS3 / Tailwind</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
+                    <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
+                    <span class="font-medium text-sm">JavaScript (ES6+)</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center gap-2 card-hover">
+                    <i class="fa-brands fa-github text-slate-900 text-3xl"></i>
+                    <span class="font-medium text-sm">Git / GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projekte Section -->
+        <section id="projects" class="mb-24">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold flex items-center gap-3">
+                    <i class="fa-solid fa-laptop-code text-blue-600"></i> Projekte
+                </h2>
+                <a href="#" class="text-blue-600 hover:underline font-medium">Alle auf GitHub →</a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden card-hover">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-cloud-sun text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Wetter-Dashboard</h3>
+                        <p class="text-slate-600 mb-4 text-sm">
+                            Eine Anwendung, die Live-Daten von einer OpenWeather-API abruft und dynamisch anzeigt.
+                        </p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">JavaScript</span>
+                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">API</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
+                            Code ansehen <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden card-hover">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-list-check text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Todo-App</h3>
+                        <p class="text-slate-600 mb-4 text-sm">
+                            Ein Aufgabenverwalter mit Kategorien und Speicherung im Browser (LocalStorage).
+                        </p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">HTML</span>
+                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">CSS</span>
+                            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold uppercase">JS</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
+                            Code ansehen <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="contact" class="bg-blue-600 rounded-3xl p-8 md:p-12 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4">Bereit für ein Gespräch?</h2>
+            <p class="mb-8 opacity-90 max-w-xl mx-auto">
+                Ich bin derzeit auf der Suche nach einem Ausbildungsplatz für 2024. Gerne sende ich Ihnen meine vollständigen Bewerbungsunterlagen zu.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="mailto:deinname@email.com" class="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> E-Mail schreiben
+                </a>
+                <a href="#" class="bg-blue-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-900 transition flex items-center gap-2 border border-blue-400/30">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 text-center text-slate-500 text-sm border-t border-slate-200">
+        <p>&copy; 2024 [Adın Soyadın] - Portoflio für Ausbildungssuche</p>
+    </footer>
+
+</body>
+</html>
