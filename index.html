@@ -106,6 +106,19 @@
             background: radial-gradient(circle, rgba(214, 255, 77, 0.15) 0%, transparent 70%);
             z-index: 0;
         }
+
+        /* MathQuest iFrame Container */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            aspect-ratio: 9/16;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 4px solid #142a1e;
+        }
     </style>
 </head>
 <body class="font-inter">
@@ -141,7 +154,7 @@
 
     <main class="max-w-6xl mx-auto px-6">
         
-        <!-- About Section (Profil Slaytı) -->
+        <!-- About Section -->
         <section id="about" class="mb-48 flex flex-col-reverse md:grid md:grid-cols-2 gap-16 md:gap-24 items-center pt-20">
             <div class="reveal">
                 <h2 class="text-6xl text-brandPrimary uppercase mb-10 italic text-center md:text-left">Mein Profil</h2>
@@ -159,8 +172,8 @@
                         <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Deutsch (i.A.)</span>
                     </div>
                     <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/5">
-                        <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">B1</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch (i.A.)</span>
+                        <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">C1</span>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch</span>
                     </div>
                 </div>
             </div>
@@ -169,10 +182,7 @@
                 <div class="profile-glow"></div>
                 <div class="vertical-frame group shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
                     <div class="slider-container" data-interval="4000">
-                        <!-- Profil fotoğrafları slaytı (Eklemek istediğin diğer görselleri buraya ekleyebilirsin) -->
                         <img src="assets/denizportfolio1-1.png" alt="Umut Deniz Uslu 1" class="slide active w-full h-full object-cover">
-                        <!-- Eğer 2. bir profil foton varsa aşağıdaki yorumu açabilirsin -->
-                        <img src="assets/denizportfolio-2.png" alt="Umut Deniz Uslu 2" class="slide w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -187,56 +197,85 @@
                 </p>
             </div>
 
-            <div class="space-y-16">
+            <div class="space-y-24">
                 
-                <!-- Project Card: SOPHIE (15 Görsellik Slayt Sistemi) -->
+                <!-- Project 1: SOPHIE -->
                 <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden min-h-[650px] reveal">
                     <div class="md:w-1/2 p-8 bg-black/40 flex items-center justify-center relative">
                         <div class="vertical-frame shadow-2xl">
-                            <!-- 15 Fotoğraflık Sophie Slaytı -->
                             <div class="slider-container" id="sophie-slider" data-interval="2500">
-                                <!-- JS ile dinamik olarak 1-15 arası yüklenecek veya manuel ekleyebilirsin -->
-                                <img src="assets/sophieapp-1.PNG" class="slide active w-full h-full object-contain" alt="Sophie App 1">
-                                <img src="assets/sophieapp-2.PNG" class="slide w-full h-full object-contain" alt="Sophie App 2">
-                                <img src="assets/sophieapp-3.PNG" class="slide w-full h-full object-contain" alt="Sophie App 3">
-                                <img src="assets/sophieapp-4.PNG" class="slide w-full h-full object-contain" alt="Sophie App 4">
-                                <img src="assets/sophieapp-5.PNG" class="slide w-full h-full object-contain" alt="Sophie App 5">
-                                <img src="assets/sophieapp-6.PNG" class="slide w-full h-full object-contain" alt="Sophie App 6">
-                                <img src="assets/sophieapp-7.PNG" class="slide w-full h-full object-contain" alt="Sophie App 7">
-                                <img src="assets/sophieapp-8.PNG" class="slide w-full h-full object-contain" alt="Sophie App 8">
-                                <img src="assets/sophieapp-9.PNG" class="slide w-full h-full object-contain" alt="Sophie App 9">
-                                <img src="assets/sophieapp-10.PNG" class="slide w-full h-full object-contain" alt="Sophie App 10">
-                                <img src="assets/sophieapp-11.PNG" class="slide w-full h-full object-contain" alt="Sophie App 11">
-                                <img src="assets/sophieapp-12.PNG" class="slide w-full h-full object-contain" alt="Sophie App 12">
-                                <img src="assets/sophieapp-13.PNG" class="slide w-full h-full object-contain" alt="Sophie App 13">
-                                <img src="assets/sophieapp-14.PNG" class="slide w-full h-full object-contain" alt="Sophie App 14">
-                                <img src="assets/sophieapp-15.PNG" class="slide w-full h-full object-contain" alt="Sophie App 15">
+                                <img src="assets/sophieapp-1.png" class="slide active w-full h-full object-contain" alt="Sophie App 1">
+                                <img src="assets/sophieapp-2.png" class="slide w-full h-full object-contain" alt="Sophie App 2">
+                                <img src="assets/sophieapp-3.png" class="slide w-full h-full object-contain" alt="Sophie App 3">
+                                <img src="assets/sophieapp-4.png" class="slide w-full h-full object-contain" alt="Sophie App 4">
+                                <img src="assets/sophieapp-5.png" class="slide w-full h-full object-contain" alt="Sophie App 5">
+                                <img src="assets/sophieapp-6.png" class="slide w-full h-full object-contain" alt="Sophie App 6">
+                                <img src="assets/sophieapp-7.png" class="slide w-full h-full object-contain" alt="Sophie App 7">
+                                <img src="assets/sophieapp-8.png" class="slide w-full h-full object-contain" alt="Sophie App 8">
+                                <img src="assets/sophieapp-9.png" class="slide w-full h-full object-contain" alt="Sophie App 9">
+                                <img src="assets/sophieapp-10.png" class="slide w-full h-full object-contain" alt="Sophie App 10">
+                                <img src="assets/sophieapp-11.png" class="slide w-full h-full object-contain" alt="Sophie App 11">
+                                <img src="assets/sophieapp-12.png" class="slide w-full h-full object-contain" alt="Sophie App 12">
+                                <img src="assets/sophieapp-13.png" class="slide w-full h-full object-contain" alt="Sophie App 13">
+                                <img src="assets/sophieapp-14.png" class="slide w-full h-full object-contain" alt="Sophie App 14">
+                                <img src="assets/sophieapp-15.png" class="slide w-full h-full object-contain" alt="Sophie App 15">
                             </div>
                         </div>
-                        <!-- Slayt Kontrol İpucu -->
-                        <div class="absolute bottom-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Autoplay Active</div>
+                        <div class="absolute bottom-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Autoplay Gallery</div>
                     </div>
                     
                     <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40 border-l border-white/5">
                         <div class="flex flex-wrap gap-3 mb-8">
                             <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">React Native</span>
                             <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">Firebase</span>
-                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">OpenRouter API</span>
                         </div>
                         <h3 class="text-6xl mb-6 uppercase leading-none">Sophie</h3>
                         <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
-                            KI-gestützte Haustier-Tracking-App. Features umfassen ein intelligentes Veterinär-System, AI-Chat für Gesundheitsberatung und Cloud-Synchronisierung via Firebase. Entwickelt für die nahtlose Verwaltung der Tiergesundheit.
+                            KI-gestützte Haustier-Tracking-App. Features umfassen ein intelligentes Veterinär-System, AI-Chat für Gesundheitsberatung und Cloud-Synchronisierung via Firebase.
                         </p>
                         <div class="flex gap-8 items-center flex-wrap">
-                            <!-- Güncellenen Link -->
                             <a href="https://sophie-7379.web.app/" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Live Demo</a>
-                            <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl flex items-center gap-3 group">
+                            <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl flex items-center gap-3">
                                 <i class="fa-brands fa-github"></i>
-                                <span class="text-[10px] uppercase font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Source Code</span>
                             </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 2: MATHQUEST (Oynanabilir iFrame) -->
+                <div class="project-card rounded-[3rem] flex flex-col md:flex-row-reverse overflow-hidden min-h-[650px] reveal">
+                    <div class="md:w-1/2 p-8 bg-black/40 flex items-center justify-center relative">
+                        <!-- Playable Embed Section -->
+                        <div class="iframe-container">
+                            <iframe
+                                src="https://junkieeee.github.io/math-quest/"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                title="MathQuest - Modernes Mathe-Spiel"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="absolute top-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Play Directly Above</div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40 border-r border-white/5">
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">HTML5 / JS</span>
+                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">Game Design</span>
+                        </div>
+                        <h3 class="text-6xl mb-6 uppercase leading-none">MathQuest</h3>
+                        <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
+                            Ein interaktives Mathe-Spiel, das Lernen und Gamification kombiniert. Entwickelt für eine intuitive Benutzererfahrung mit Fokus auf Performance und direktes Feedback.
+                        </p>
+                        <div class="flex gap-8 items-center flex-wrap">
+                            <a href="https://junkieeee.github.io/math-quest/" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Full Screen Play</a>
+                            <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl flex items-center gap-3">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
