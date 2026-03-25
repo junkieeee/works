@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.Deniz Uslu | Junior Developer & AI Enthusiast</title>
+    <title>Umut Deniz Uslu | Portfolio</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
@@ -51,42 +51,12 @@
         }
 
         .project-card:hover {
-            transform: translateY(-15px) scale(1.01);
             border-color: #D6FF4D;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(214, 255, 77, 0.1);
-        }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(214, 255, 77, 0.08), transparent);
-            transition: 0.6s;
-        }
-
-        .project-card:hover::after {
-            left: 150%;
-        }
-
-        .img-container {
-            background: linear-gradient(135deg, #0A1F14 0%, #1a3a2a 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
 
         .glow-text {
             text-shadow: 0 0 15px rgba(214, 255, 77, 0.4);
-        }
-
-        ::selection {
-            background: #D6FF4D;
-            color: #0A1F14;
         }
 
         .reveal {
@@ -99,38 +69,42 @@
             transform: translateY(0);
         }
 
-        /* Fotoğraflar için stil */
-        .fit-img {
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: scale(1.05);
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
         }
 
-        /* Dikey mobil görselleri için özel ayar */
-        .mobile-shot {
-            max-height: 550px; 
-            object-fit: contain; 
-            object-position: center;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-        }
-
-        .project-card:hover .fit-img {
-            transform: scale(1.1);
-        }
-
-        /* Profil Fotoğrafı Efekti - Dikey Form */
-        .profile-frame {
+        /* Profil ve Proje Görsel Çerçevesi */
+        .vertical-frame {
             position: relative;
-            padding: 4px;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 704/1246;
             border-radius: 2rem;
-            background: linear-gradient(135deg, rgba(214, 255, 77, 0.4) 0%, transparent 100%);
-            transition: all 0.5s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            background: #000;
         }
 
-        .profile-frame:hover {
-            background: linear-gradient(135deg, #D6FF4D 0%, transparent 100%);
-            transform: translateY(-10px);
+        .profile-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(214, 255, 77, 0.15) 0%, transparent 70%);
+            z-index: 0;
         }
     </style>
 </head>
@@ -139,7 +113,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full top-0 z-50 bg-[#0A1F14]/80 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <span class="nav-logo text-3xl text-brandPrimary tracking-tighter uppercase">UMUT DENIZ USLU</span>
+            <span class="nav-logo text-3xl text-brandPrimary tracking-tighter uppercase underline decoration-2 offset-4">Umut Deniz Uslu</span>
             <div class="space-x-10 hidden md:flex font-bold text-[11px] uppercase tracking-[0.2em]">
                 <a href="#home" class="hover:text-brandPrimary transition">Start</a>
                 <a href="#about" class="hover:text-brandPrimary transition">Profil</a>
@@ -167,39 +141,38 @@
 
     <main class="max-w-6xl mx-auto px-6">
         
-        <!-- About Section (Geliştirilmiş Responsive Profil Alanı) -->
+        <!-- About Section (Profil Slaytı) -->
         <section id="about" class="mb-48 flex flex-col-reverse md:grid md:grid-cols-2 gap-16 md:gap-24 items-center pt-20">
             <div class="reveal">
                 <h2 class="text-6xl text-brandPrimary uppercase mb-10 italic text-center md:text-left">Mein Profil</h2>
                 <div class="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed font-light text-center md:text-left">
                     <p>
-                        In der modernen Softwareentwicklung sehe ich KI nicht als Ersatz, sondern als mächtigen Co-Piloten. Mein Fokus liegt auf dem Rapid Prototyping und der Entwicklung funktionaler Cross-Platform-Anwendungen.
+                        Mein Name ist <strong>Umut Deniz Uslu</strong>. In der modernen Softwareentwicklung sehe ich KI nicht als Ersatz, sondern als mächtigen Co-Piloten. Mein Fokus liegt auf dem Rapid Prototyping und der Entwicklung funktionaler Cross-Platform-Anwendungen.
                     </p>
                     <p>
                         Ich verfüge über fundierte Kenntnisse in **HTML/CSS** und sammle intensive praktische Erfahrungen mit **React Native** und **Cloud-Infrastrukturen (Firebase)**.
                     </p>
                 </div>
-                <div class="mt-12 flex flex-row gap-4 md:gap-6 text-center">
-                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
+                <div class="mt-12 flex flex-row gap-4 md:gap-6 text-center justify-center md:justify-start">
+                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/5">
                         <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">B1</span>
                         <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Deutsch (i.A.)</span>
                     </div>
-                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
+                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/5">
                         <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">C1</span>
                         <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Dikey Formda Tam Görünüm Profil Fotoğrafı -->
-            <div class="relative group reveal w-full flex justify-center items-center">
-                <div class="profile-frame">
-                    <!-- Arka plan parlama efekti -->
-                    <div class="absolute -inset-4 bg-brandPrimary/10 rounded-[2.5rem] blur-3xl group-hover:bg-brandPrimary/20 transition duration-500"></div>
-                    
-                    <!-- Görsel Konteyneri: 704x1246 oranına sadık kalacak dikey yapı -->
-                    <div class="relative w-64 md:w-[350px] aspect-[704/1246] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl bg-brandSurface">
-                        <img src="assets/denizportfolio1-1.png" alt="Sophie Profil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="relative w-full flex justify-center items-center reveal">
+                <div class="profile-glow"></div>
+                <div class="vertical-frame group shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                    <div class="slider-container" data-interval="4000">
+                        <!-- Profil fotoğrafları slaytı (Eklemek istediğin diğer görselleri buraya ekleyebilirsin) -->
+                        <img src="assets/denizportfolio1-1.png" alt="Umut Deniz Uslu 1" class="slide active w-full h-full object-cover">
+                        <!-- Eğer 2. bir profil foton varsa aşağıdaki yorumu açabilirsin -->
+                        <!-- <img src="assets/denizportfolio1-2.png" alt="Umut Deniz Uslu 2" class="slide w-full h-full object-cover"> -->
                     </div>
                 </div>
             </div>
@@ -216,14 +189,34 @@
 
             <div class="space-y-16">
                 
-                <!-- Project Card 1: SOPHIE -->
-                <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden min-h-[550px] reveal">
-                    <div class="md:w-1/2 img-container p-8 bg-brandBg/50">
-                        <img src="assets/denizportfolio1-1.png" alt="Sophie App Screenshot" class="mobile-shot transition-transform duration-700 hover:scale-105">
-                        <div class="absolute top-6 left-6 pointer-events-none">
-                            <i class="fa-solid fa-paw text-2xl text-brandPrimary/30"></i>
+                <!-- Project Card: SOPHIE (15 Görsellik Slayt Sistemi) -->
+                <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden min-h-[650px] reveal">
+                    <div class="md:w-1/2 p-8 bg-black/40 flex items-center justify-center relative">
+                        <div class="vertical-frame shadow-2xl">
+                            <!-- 15 Fotoğraflık Sophie Slaytı -->
+                            <div class="slider-container" id="sophie-slider" data-interval="2500">
+                                <!-- JS ile dinamik olarak 1-15 arası yüklenecek veya manuel ekleyebilirsin -->
+                                <img src="assets/sophieapp-1.png" class="slide active w-full h-full object-contain" alt="Sophie App 1">
+                                <img src="assets/sophieapp-2.png" class="slide w-full h-full object-contain" alt="Sophie App 2">
+                                <img src="assets/sophieapp-3.png" class="slide w-full h-full object-contain" alt="Sophie App 3">
+                                <img src="assets/sophieapp-4.png" class="slide w-full h-full object-contain" alt="Sophie App 4">
+                                <img src="assets/sophieapp-5.png" class="slide w-full h-full object-contain" alt="Sophie App 5">
+                                <img src="assets/sophieapp-6.png" class="slide w-full h-full object-contain" alt="Sophie App 6">
+                                <img src="assets/sophieapp-7.png" class="slide w-full h-full object-contain" alt="Sophie App 7">
+                                <img src="assets/sophieapp-8.png" class="slide w-full h-full object-contain" alt="Sophie App 8">
+                                <img src="assets/sophieapp-9.png" class="slide w-full h-full object-contain" alt="Sophie App 9">
+                                <img src="assets/sophieapp-10.png" class="slide w-full h-full object-contain" alt="Sophie App 10">
+                                <img src="assets/sophieapp-11.png" class="slide w-full h-full object-contain" alt="Sophie App 11">
+                                <img src="assets/sophieapp-12.png" class="slide w-full h-full object-contain" alt="Sophie App 12">
+                                <img src="assets/sophieapp-13.png" class="slide w-full h-full object-contain" alt="Sophie App 13">
+                                <img src="assets/sophieapp-14.png" class="slide w-full h-full object-contain" alt="Sophie App 14">
+                                <img src="assets/sophieapp-15.png" class="slide w-full h-full object-contain" alt="Sophie App 15">
+                            </div>
                         </div>
+                        <!-- Slayt Kontrol İpucu -->
+                        <div class="absolute bottom-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Autoplay Active</div>
                     </div>
+                    
                     <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40 border-l border-white/5">
                         <div class="flex flex-wrap gap-3 mb-8">
                             <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">React Native</span>
@@ -232,10 +225,11 @@
                         </div>
                         <h3 class="text-6xl mb-6 uppercase leading-none">Sophie</h3>
                         <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
-                            KI-gestützte Haustier-Tracking-App. Features umfassen ein intelligentes Veterinär-System, AI-Chat für Gesundheitsberatung und Cloud-Synchronisierung via Firebase.
+                            KI-gestützte Haustier-Tracking-App. Features umfassen ein intelligentes Veterinär-System, AI-Chat für Gesundheitsberatung und Cloud-Synchronisierung via Firebase. Entwickelt für die nahtlose Verwaltung der Tiergesundheit.
                         </p>
                         <div class="flex gap-8 items-center flex-wrap">
-                            <a href="#" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Live Demo</a>
+                            <!-- Güncellenen Link -->
+                            <a href="https://sophie-7379.web.app/" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Live Demo</a>
                             <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl flex items-center gap-3 group">
                                 <i class="fa-brands fa-github"></i>
                                 <span class="text-[10px] uppercase font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Source Code</span>
@@ -273,7 +267,7 @@
         <section id="contact" class="text-center py-32 border-t border-white/5">
             <h2 class="text-8xl md:text-[12rem] uppercase mb-12 leading-none">Let's <br><span class="text-brandPrimary">Connect</span></h2>
             <div class="flex flex-wrap justify-center gap-16">
-                <a href="mailto:dein@email.com" class="text-4xl font-bebas group relative overflow-hidden">
+                <a href="mailto:umutdenizuslu@example.com" class="text-4xl font-bebas group relative overflow-hidden">
                     Email
                     <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
                 </a>
@@ -291,10 +285,11 @@
     </main>
 
     <footer class="py-16 text-center text-slate-800 text-[10px] tracking-[0.8em] uppercase font-bold">
-        UMUT DENIZ USLU | 2026
+        Umut Deniz Uslu // Designed for Growth // 2024
     </footer>
 
     <script>
+        // Reveal Animations
         const handleScroll = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(reveal => {
@@ -307,6 +302,27 @@
         };
         window.addEventListener('scroll', handleScroll);
         handleScroll();
+
+        // Slider Logic
+        const initSliders = () => {
+            const containers = document.querySelectorAll('.slider-container');
+            
+            containers.forEach(container => {
+                const slides = container.querySelectorAll('.slide');
+                if (slides.length <= 1) return;
+
+                let currentIndex = 0;
+                const interval = parseInt(container.getAttribute('data-interval')) || 3000;
+
+                setInterval(() => {
+                    slides[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    slides[currentIndex].classList.add('active');
+                }, interval);
+            });
+        };
+
+        window.onload = initSliders;
     </script>
 
 </body>
