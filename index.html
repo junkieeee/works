@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.Deniz Uslu | Portfolio</title>
-    <!-- Google Fonts: Bebas Neue for Headings, Inter for Body -->
+    <title>Portfolio | Junior Developer & AI Enthusiast</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +18,7 @@
                         brandBg: '#0A1F14',
                         brandPrimary: '#D6FF4D',
                         brandText: '#FFFFFF',
+                        brandSurface: '#142a1e',
                     },
                     fontFamily: {
                         bebas: ['"Bebas Neue"', 'cursive'],
@@ -34,144 +35,251 @@
             color: #FFFFFF;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         h1, h2, h3, .nav-logo { 
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 1px;
         }
-        .custom-border {
-            border: 1px solid rgba(214, 255, 77, 0.2);
+        
+        .project-card {
+            background: #142a1e;
+            border: 1px solid rgba(214, 255, 77, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
-        .card-hover:hover {
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.01);
             border-color: #D6FF4D;
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(214, 255, 77, 0.1);
         }
-        /* Custom selection color */
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(214, 255, 77, 0.08), transparent);
+            transition: 0.6s;
+        }
+
+        .project-card:hover::after {
+            left: 150%;
+        }
+
+        .img-container {
+            background: linear-gradient(135deg, #0A1F14 0%, #1a3a2a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 15px rgba(214, 255, 77, 0.4);
+        }
+
         ::selection {
             background: #D6FF4D;
             color: #0A1F14;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fotoğraflar için stil */
+        .fit-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .project-card:hover .fit-img {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body class="font-inter">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#0A1F14]/90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="nav-logo text-2xl text-brandPrimary tracking-widest uppercase">U.Deniz Uslu</span>
-            <div class="space-x-8 hidden md:flex font-semibold text-sm uppercase tracking-wider">
+    <nav class="fixed w-full top-0 z-50 bg-[#0A1F14]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="nav-logo text-3xl text-brandPrimary tracking-tighter uppercase">PORTFOLIO</span>
+            <div class="space-x-10 hidden md:flex font-bold text-[11px] uppercase tracking-[0.2em]">
                 <a href="#home" class="hover:text-brandPrimary transition">Start</a>
-                <a href="#about" class="hover:text-brandPrimary transition">Über mich</a>
+                <a href="#about" class="hover:text-brandPrimary transition">Profil</a>
                 <a href="#projects" class="hover:text-brandPrimary transition">Projekte</a>
-                <a href="#skills" class="hover:text-brandPrimary transition">Skills</a>
-                <a href="#contact" class="text-brandPrimary border border-brandPrimary px-4 py-1 rounded hover:bg-brandPrimary hover:text-brandBg transition">Kontakt</a>
+                <a href="#contact" class="text-brandBg bg-brandPrimary px-5 py-2 rounded-sm hover:brightness-110 transition">Kontakt</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col items-start gap-6">
-            <h1 class="text-7xl md:text-9xl font-bold leading-none uppercase">
-                Ich bin <br><span class="text-brandPrimary"> Umut Deniz Uslu <span>
-            </h1>
-            <p class="text-xl text-slate-400 max-w-2xl font-light">
-                Leidenschaftlicher Junior-Entwickler. Ich kombiniere sauberen Code mit modernem Design, um digitale Erlebnisse zu schaffen.
-            </p>
-            <div class="flex gap-6 mt-4">
-                <a href="#projects" class="bg-brandPrimary text-brandBg px-8 py-4 rounded-full font-bold uppercase tracking-tighter hover:scale-105 transition">Projekte ansehen</a>
-                <a href="#contact" class="flex items-center gap-2 text-white border-b border-brandPrimary pb-1 hover:text-brandPrimary transition">Lebenslauf PDF <i class="fa-solid fa-arrow-right text-xs"></i></a>
+    <header id="home" class="pt-48 pb-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-block px-4 py-1 border border-brandPrimary/30 text-brandPrimary text-[10px] font-bold uppercase tracking-[0.3em] mb-10 rounded-full">
+                Junior Developer // AI Integrator
             </div>
+            <h1 class="text-7xl md:text-[10rem] font-bold leading-[0.8] uppercase mb-10 glow-text">
+                Vision <br><span class="text-brandPrimary italic">To Reality</span>
+            </h1>
+            <p class="text-xl md:text-3xl text-slate-400 max-w-3xl font-light leading-snug">
+                Ich bin <span class="text-white font-semibold underline decoration-brandPrimary/50">Sophie</span>. 
+                Ich entwickle intelligente Lösungen durch die Symbiose von menschlicher Kreativität und künstlicher Intelligenz.
+            </p>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-16">
+    <main class="max-w-6xl mx-auto px-6">
         
-        <!-- About Section -->
-        <section id="about" class="mb-32">
-            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Über mich</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-4 text-slate-300 leading-relaxed">
+        <!-- About Section (Profil Fotoğrafı Alanı) -->
+        <section id="about" class="mb-48 grid md:grid-cols-2 gap-24 items-center pt-20">
+            <div class="reveal">
+                <h2 class="text-6xl text-brandPrimary uppercase mb-10 italic">Mein Profil</h2>
+                <div class="space-y-6 text-xl text-slate-300 leading-relaxed font-light">
                     <p>
-                        Mein Weg in die Informatik begann mit der Neugier, komplexe Probleme durch einfache, elegante Lösungen zu knacken. Ich lerne schnell und brenne darauf, in einem professionellen Team als <strong>Fachinformatiker</strong> durchzustarten.
+                        In der modernen Softwareentwicklung sehe ich KI nicht als Ersatz, sondern als mächtigen Co-Piloten. Mein Fokus liegt auf dem Rapid Prototyping und der Entwicklung funktionaler Cross-Platform-Anwendungen.
                     </p>
                     <p>
-                        Ich fokussiere mich auf moderne Web-Technologien und lege Wert auf effizienten Code. In meiner Freizeit entwickle ich kleine Tools, die den Alltag erleichtern.
+                        Ich verfüge über fundierte Kenntnisse in **HTML/CSS** und sammle intensive praktische Erfahrungen mit **React Native** und **Cloud-Infrastrukturen (Firebase)**.
                     </p>
                 </div>
-                <div class="custom-border p-4 rounded-3xl">
-                    <div class="bg-brandPrimary/10 h-64 rounded-2xl flex items-center justify-center text-brandPrimary">
-                        <i class="fa-solid fa-code-merge text-6xl"></i>
+                <div class="mt-12 flex gap-6 text-center">
+                    <div class="p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
+                        <span class="text-brandPrimary text-4xl font-bebas">B1</span>
+                        <span class="text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Deutsch (i.A.)</span>
+                    </div>
+                    <div class="p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
+                        <span class="text-brandPrimary text-4xl font-bebas">C1</span>
+                        <span class="text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="mb-32">
-            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
-                    <i class="fa-brands fa-html5 text-brandPrimary text-4xl"></i>
-                    <span class="font-bold text-sm tracking-widest uppercase">HTML5</span>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
-                    <i class="fa-brands fa-js text-brandPrimary text-4xl"></i>
-                    <span class="font-bold text-sm tracking-widest uppercase">JavaScript</span>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
-                    <i class="fa-brands fa-python text-brandPrimary text-4xl"></i>
-                    <span class="font-bold text-sm tracking-widest uppercase">Python</span>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl custom-border flex flex-col items-center gap-3 card-hover">
-                    <i class="fa-brands fa-git-alt text-brandPrimary text-4xl"></i>
-                    <span class="font-bold text-sm tracking-widest uppercase">Git</span>
+            <div class="relative group reveal">
+                <div class="absolute -inset-6 bg-brandPrimary/10 rounded-[3rem] blur-3xl group-hover:bg-brandPrimary/20 transition"></div>
+                <div class="relative aspect-square bg-brandSurface rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl">
+                    <!-- PROFİL FOTOĞRAFI BURAYA: src="assets/profil.jpg" yapabilirsin -->
+                    <img src="assets/denizportfolio1-1.png=80&w=1000&auto=format&fit=crop" alt="Sophie Profil" class="fit-img grayscale hover:grayscale-0 transition-all duration-500">
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="mb-32">
-            <h2 class="text-5xl mb-10 text-brandPrimary uppercase">Projekte</h2>
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Project 1 -->
-                <div class="group">
-                    <div class="bg-white/5 h-64 rounded-3xl mb-6 custom-border overflow-hidden flex items-center justify-center group-hover:border-brandPrimary transition">
-                        <i class="fa-solid fa-terminal text-5xl text-brandPrimary/30 group-hover:text-brandPrimary transition"></i>
+        <section id="projects" class="mb-48">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                <h2 class="text-8xl text-brandPrimary uppercase italic leading-none">Projekte</h2>
+                <p class="text-slate-400 max-w-xs text-sm uppercase tracking-tighter leading-relaxed">
+                    Innovative Anwendungen mit Fokus auf AI-Integration und User Experience.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                
+                <!-- Project Card 1: SOPHIE (Ekran Görüntüsü Alanı) -->
+                <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden min-h-[500px] reveal">
+                    <div class="md:w-1/2 img-container">
+                        <!-- PROJE EKRAN GÖRÜNTÜSÜ BURAYA: src="assets/sophie-screen.png" -->
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1000&auto=format&fit=crop" alt="Sophie App Screenshot" class="fit-img opacity-60 group-hover:opacity-100">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fa-solid fa-paw text-6xl text-brandPrimary glow-text opacity-40"></i>
+                        </div>
                     </div>
-                    <h3 class="text-2xl mb-2 uppercase">Wetter Dashboard</h3>
-                    <p class="text-slate-400 text-sm mb-4">REST-API Integration mit dynamischer UI.</p>
-                    <a href="#" class="text-brandPrimary font-bold text-xs tracking-widest uppercase border-b border-brandPrimary">View Code</a>
+                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40">
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">React Native</span>
+                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">Firebase</span>
+                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">OpenRouter API</span>
+                        </div>
+                        <h3 class="text-6xl mb-6 uppercase leading-none">Sophie</h3>
+                        <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
+                            KI-gestützte Haustier-Tracking-App. Features umfassen ein intelligentes Veterinär-System, AI-Chat für Gesundheitsberatung und Cloud-Synchronisierung via Firebase.
+                        </p>
+                        <div class="flex gap-8 items-center flex-wrap">
+                            <a href="#" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Live Demo</a>
+                            <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl flex items-center gap-3 group">
+                                <i class="fa-brands fa-github"></i>
+                                <span class="text-[10px] uppercase font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Source Code</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="group">
-                    <div class="bg-white/5 h-64 rounded-3xl mb-6 custom-border overflow-hidden flex items-center justify-center group-hover:border-brandPrimary transition">
-                        <i class="fa-solid fa-database text-5xl text-brandPrimary/30 group-hover:text-brandPrimary transition"></i>
-                    </div>
-                    <h3 class="text-2xl mb-2 uppercase">Task Manager</h3>
-                    <p class="text-slate-400 text-sm mb-4">Local Storage basierte CRUD Anwendung.</p>
-                    <a href="#" class="text-brandPrimary font-bold text-xs tracking-widest uppercase border-b border-brandPrimary">View Code</a>
+
+                <!-- Diğer projeler aynı mantıkla eklenebilir -->
+
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-48 text-center reveal">
+            <h2 class="text-4xl text-brandPrimary uppercase mb-16 italic">Core Competencies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-brands fa-react text-brandPrimary text-4xl mb-4"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">React Native</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-solid fa-fire text-brandPrimary text-4xl mb-4"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">Firebase</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-solid fa-robot text-brandPrimary text-4xl mb-4"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">AI Prompting</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-brands fa-html5 text-brandPrimary text-4xl mb-4"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">Web Fundamentals</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 border-t border-white/10 text-center">
-            <h2 class="text-6xl md:text-8xl mb-6 uppercase leading-none">Bereit für den <br><span class="text-brandPrimary italic">Nächsten Schritt?</span></h2>
-            <p class="text-slate-400 mb-10 max-w-lg mx-auto uppercase tracking-tighter">Ich freue mich über Ihre Kontaktaufnahme bezüglich eines Ausbildungsplatzes.</p>
-            <div class="flex flex-wrap justify-center gap-8">
-                <a href="mailto:deinname@email.com" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">E-Mail</a>
-                <a href="#" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">LinkedIn</a>
-                <a href="#" class="text-3xl font-bebas hover:text-brandPrimary transition uppercase">GitHub</a>
+        <!-- Contact -->
+        <section id="contact" class="text-center py-32 border-t border-white/5">
+            <h2 class="text-8xl md:text-[12rem] uppercase mb-12 leading-none">Let's <br><span class="text-brandPrimary">Connect</span></h2>
+            <div class="flex flex-wrap justify-center gap-16">
+                <a href="mailto:dein@email.com" class="text-4xl font-bebas group relative overflow-hidden">
+                    Email
+                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#" class="text-4xl font-bebas group relative overflow-hidden">
+                    LinkedIn
+                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#" class="text-4xl font-bebas group relative overflow-hidden">
+                    GitHub
+                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
+                </a>
             </div>
         </section>
 
     </main>
 
-    <footer class="py-10 text-center text-slate-600 text-[10px] tracking-[0.3em] uppercase">
-        &copy; 2026 U.Deniz Uslu // Portfolio
+    <footer class="py-16 text-center text-slate-800 text-[10px] tracking-[0.8em] uppercase font-bold">
+        Umut Deniz Uslu // 2026
     </footer>
+
+    <script>
+        const handleScroll = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 150) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    </script>
 
 </body>
 </html>
