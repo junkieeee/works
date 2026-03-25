@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.Deniz.Uslu | Junior Developer & AI Enthusiast</title>
+    <title>U.Deniz Uslu | Junior Developer & AI Enthusiast</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
@@ -119,12 +119,18 @@
             transform: scale(1.1);
         }
 
-        /* Profil Fotoğrafı Efekti */
-        .profile-ring {
+        /* Profil Fotoğrafı Efekti - Dikey Form */
+        .profile-frame {
             position: relative;
-            padding: 12px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(214, 255, 77, 0.5) 0%, transparent 100%);
+            padding: 4px;
+            border-radius: 2rem;
+            background: linear-gradient(135deg, rgba(214, 255, 77, 0.4) 0%, transparent 100%);
+            transition: all 0.5s ease;
+        }
+
+        .profile-frame:hover {
+            background: linear-gradient(135deg, #D6FF4D 0%, transparent 100%);
+            transform: translateY(-10px);
         }
     </style>
 </head>
@@ -176,21 +182,24 @@
                 <div class="mt-12 flex flex-row gap-4 md:gap-6 text-center">
                     <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
                         <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">B1</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold">Deutsch (i.A.)</span>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Deutsch (i.A.)</span>
                     </div>
                     <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center flex-1 bg-white/5">
                         <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">C1</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold">Englisch</span>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Yuvarlak ve Responsive Fotoğraf Alanı -->
+            <!-- Dikey Formda Tam Görünüm Profil Fotoğrafı -->
             <div class="relative group reveal w-full flex justify-center items-center">
-                <div class="profile-ring group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute -inset-2 bg-brandPrimary/20 rounded-full blur-2xl group-hover:bg-brandPrimary/30 transition"></div>
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-2 border-brandPrimary/30 overflow-hidden shadow-2xl bg-brandSurface">
-                        <img src="assets/denizportfolio1-1.png" alt="Sophie Profil" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="profile-frame">
+                    <!-- Arka plan parlama efekti -->
+                    <div class="absolute -inset-4 bg-brandPrimary/10 rounded-[2.5rem] blur-3xl group-hover:bg-brandPrimary/20 transition duration-500"></div>
+                    
+                    <!-- Görsel Konteyneri: 704x1246 oranına sadık kalacak dikey yapı -->
+                    <div class="relative w-64 md:w-[350px] aspect-[704/1246] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl bg-brandSurface">
+                        <img src="assets/denizportfolio1-1.png" alt="Sophie Profil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                 </div>
             </div>
