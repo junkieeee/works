@@ -88,7 +88,7 @@
             transform: scale(1);
         }
 
-        /* Profil ve Proje Görsel Çerçevesi */
+        /* Fotoğraf Çerçeveleri */
         .vertical-frame {
             position: relative;
             width: 100%;
@@ -100,24 +100,25 @@
             background: #000;
         }
 
-        .profile-glow {
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(circle, rgba(214, 255, 77, 0.15) 0%, transparent 70%);
-            z-index: 0;
+        /* OYUN ÇERÇEVESİ GÜNCELLEME: Boyut %290 olarak optimize edildi */
+        .game-wrapper {
+            width: 100%;
+            max-width: 420px; 
+            margin: 0 auto;
+            position: relative;
+            background: #1a2e26;
+            border: 12px solid #1a2e26; 
+            border-radius: 4rem;
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
         }
 
-        /* MathQuest iFrame Container - No Scroll */
-        .game-frame-wrapper {
+        .game-aspect-ratio {
             position: relative;
+            /* İstediğin gibi %290 dikey alan ayarlandı */
+            padding-top: 290%; 
             width: 100%;
-            max-width: 350px; /* Sophie ile aynı genişlikte tutalım */
-            aspect-ratio: 9/16;
-            border-radius: 2.5rem;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            border: 6px solid #1a2e26;
-            background: #000;
+            height: 0;
         }
 
         .game-iframe {
@@ -127,7 +128,13 @@
             width: 100%;
             height: 100%;
             border: none;
-            overflow: hidden; /* Kaydırma çubuklarını CSS ile engelle */
+            touch-action: pan-x pan-y;
+        }
+
+        @media (max-width: 768px) {
+            .game-wrapper {
+                max-width: 330px; 
+            }
         }
     </style>
 </head>
@@ -146,53 +153,44 @@
         </div>
     </nav>
 
-    <!-- Giriş Bölümü -->
+    <!-- Hero Bölümü -->
     <header id="home" class="pt-48 pb-24 px-6">
-        <div class="max-w-6xl mx-auto text-center md:text-left">
+        <div class="max-w-6xl mx-auto">
             <div class="inline-block px-4 py-1 border border-brandPrimary/30 text-brandPrimary text-[10px] font-bold uppercase tracking-[0.3em] mb-10 rounded-full">
-                Junior Developer // AI Integrator
+                Angehender Fachinformatiker | Web- und Appentwicklung
             </div>
-            <h1 class="text-7xl md:text-[10rem] font-bold leading-[0.8] uppercase mb-10 glow-text">
-                Vision <br><span class="text-brandPrimary italic">To Reality</span>
+            <h1 class="text-6xl md:text-[8rem] font-bold leading-[0.85] uppercase mb-10 glow-text">
+                LERNEN, <br><span class="text-brandPrimary italic">BAUEN, WACHSEN</span>
             </h1>
-            <p class="text-xl md:text-3xl text-slate-400 max-w-3xl font-light leading-snug mx-auto md:mx-0">
-                Ich bin <span class="text-white font-semibold underline decoration-brandPrimary/50">Umut Deniz Uslu</span>. 
-                Ich entwickle intelligente Lösungen durch die Symbiose von menschlicher Kreativität und künstlicher Intelligenz.
+            <p class="text-xl md:text-3xl text-slate-400 max-w-3xl font-light leading-snug">
+                Hallo, ich bin <span class="text-white font-semibold underline decoration-brandPrimary/50">Umut Deniz Uslu</span>. 
+                Angehender Softwareentwickler aus Deutschland, der mit Leidenschaft moderne Webanwendungen und KI-Lösungen erforscht.
             </p>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6">
         
-        <!-- Hakkımda / Profil Bölümü -->
+        <!-- Profil Bölümü -->
         <section id="about" class="mb-48 flex flex-col-reverse md:grid md:grid-cols-2 gap-16 md:gap-24 items-center pt-20">
             <div class="reveal">
-                <h2 class="text-6xl text-brandPrimary uppercase mb-10 italic text-center md:text-left">Mein Profil</h2>
-                <div class="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed font-light text-center md:text-left">
+                <h2 class="text-6xl text-brandPrimary uppercase mb-10 italic">Über Mich</h2>
+                <div class="space-y-6 text-lg text-slate-300 leading-relaxed font-light">
                     <p>
-                        Mein Name ist <strong>Umut Deniz Uslu</strong>. In der modernen Softwareentwicklung sehe ich KI nicht als Ersatz, sondern als mächtigen Co-Piloten. Mein Fokus liegt auf dem Rapid Prototyping und der Entwicklung funktionaler Cross-Platform-Anwendungen.
+                        Ich lerne aktuell selbstständig Webentwicklung und arbeite an meinen ersten Projekten. Mein Ziel ist es, eine **Ausbildung als Fachinformatiker für Anwendungsentwicklung** zu finden, um meine Fähigkeiten in einem professionellen Umfeld zu vertiefen.
                     </p>
-                    <p>
-                        Ich verfüge über fundierte Kenntnisse in **HTML/CSS** und sammle intensive praktische Erfahrungen mit **React Native** und **Cloud-Infrastrukturen (Firebase)**.
-                    </p>
-                </div>
-                <div class="mt-12 flex flex-row gap-4 md:gap-6 text-center justify-center md:justify-start">
-                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/5">
-                        <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">B1</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Deutsch (i.A.)</span>
-                    </div>
-                    <div class="p-4 md:p-6 border border-white/10 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/5">
-                        <span class="text-brandPrimary text-3xl md:text-4xl font-bebas">B1</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-500 mt-2 font-bold uppercase">Englisch (i.A.)</span>
-                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandPrimary"></i> Grundkenntnisse in HTML & CSS</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandPrimary"></i> Aktuell: JavaScript & React Deep Dive</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandPrimary"></i> Starkes Interesse an KI & Cloud-Technologien</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="relative w-full flex justify-center items-center reveal">
-                <div class="profile-glow"></div>
-                <div class="vertical-frame group shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                <div class="vertical-frame shadow-2xl">
                     <div class="slider-container" data-interval="4000">
-                        <img src="assets/denizportfolio-2.png" alt="Umut Deniz Uslu Profil" class="slide active w-full h-full object-cover">
+                        <img src="assets/denizportfolio1-1.png" alt="Umut Deniz Uslu" class="slide active w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -202,88 +200,79 @@
         <section id="projects" class="mb-48">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                 <h2 class="text-8xl text-brandPrimary uppercase italic leading-none">Projekte</h2>
-                <p class="text-slate-400 max-w-xs text-sm uppercase tracking-tighter leading-relaxed">
-                    Innovative Anwendungen mit Fokus auf AI-Integration und User Experience.
-                </p>
             </div>
 
-            <div class="space-y-24">
+            <div class="space-y-32">
                 
                 <!-- Proje 1: SOPHIE -->
-                <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden min-h-[650px] reveal">
-                    <div class="md:w-1/2 p-8 bg-black/40 flex items-center justify-center relative">
+                <div class="project-card rounded-[3rem] flex flex-col md:flex-row overflow-hidden reveal">
+                    <div class="md:w-1/2 p-8 bg-black/20 flex items-center justify-center">
                         <div class="vertical-frame shadow-2xl">
                             <div class="slider-container" id="sophie-slider" data-interval="2500">
-                                <!-- 1-15 arası tüm Sophie fotoğrafları -->
-                                <img src="assets/sophieapp-1.PNG" class="slide active w-full h-full object-contain" alt="Sophie App 1">
-                                <img src="assets/sophieapp-2.PNG" class="slide w-full h-full object-contain" alt="Sophie App 2">
-                                <img src="assets/sophieapp-3.PNG" class="slide w-full h-full object-contain" alt="Sophie App 3">
-                                <img src="assets/sophieapp-4.PNG" class="slide w-full h-full object-contain" alt="Sophie App 4">
-                                <img src="assets/sophieapp-5.PNG" class="slide w-full h-full object-contain" alt="Sophie App 5">
-                                <img src="assets/sophieapp-6.PNG" class="slide w-full h-full object-contain" alt="Sophie App 6">
-                                <img src="assets/sophieapp-7.PNG" class="slide w-full h-full object-contain" alt="Sophie App 7">
-                                <img src="assets/sophieapp-8.PNG" class="slide w-full h-full object-contain" alt="Sophie App 8">
-                                <img src="assets/sophieapp-9.PNG" class="slide w-full h-full object-contain" alt="Sophie App 9">
-                                <img src="assets/sophieapp-10.PNG" class="slide w-full h-full object-contain" alt="Sophie App 10">
-                                <img src="assets/sophieapp-11.PNG" class="slide w-full h-full object-contain" alt="Sophie App 11">
-                                <img src="assets/sophieapp-12.PNG" class="slide w-full h-full object-contain" alt="Sophie App 12">
-                                <img src="assets/sophieapp-13.PNG" class="slide w-full h-full object-contain" alt="Sophie App 13">
-                                <img src="assets/sophieapp-14.PNG" class="slide w-full h-full object-contain" alt="Sophie App 14">
-                                <img src="assets/sophieapp-15.PNG" class="slide w-full h-full object-contain" alt="Sophie App 15">
+                                <img src="assets/sophieapp-1.PNG" class="slide active w-full h-full object-contain" alt="Sophie 1">
+                                <img src="assets/sophieapp-2.PNG" class="slide w-full h-full object-contain" alt="Sophie 2">
+                                <img src="assets/sophieapp-3.PNG" class="slide w-full h-full object-contain" alt="Sophie 3">
+                                <img src="assets/sophieapp-4.PNG" class="slide w-full h-full object-contain" alt="Sophie 4">
+                                <img src="assets/sophieapp-5.PNG" class="slide w-full h-full object-contain" alt="Sophie 5">
+                                <img src="assets/sophieapp-6.PNG" class="slide w-full h-full object-contain" alt="Sophie 6">
+                                <img src="assets/sophieapp-7.PNG" class="slide w-full h-full object-contain" alt="Sophie 7">
+                                <img src="assets/sophieapp-8.PNG" class="slide w-full h-full object-contain" alt="Sophie 8">
+                                <img src="assets/sophieapp-9.PNG" class="slide w-full h-full object-contain" alt="Sophie 9">
+                                <img src="assets/sophieapp-10.PNG" class="slide w-full h-full object-contain" alt="Sophie 10">
+                                <img src="assets/sophieapp-11.PNG" class="slide w-full h-full object-contain" alt="Sophie 11">
+                                <img src="assets/sophieapp-12.PNG" class="slide w-full h-full object-contain" alt="Sophie 12">
+                                <img src="assets/sophieapp-13.PNG" class="slide w-full h-full object-contain" alt="Sophie 13">
+                                <img src="assets/sophieapp-14.PNG" class="slide w-full h-full object-contain" alt="Sophie 14">
+                                <img src="assets/sophieapp-15.PNG" class="slide w-full h-full object-contain" alt="Sophie 15">
                             </div>
                         </div>
-                        <div class="absolute bottom-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Visual Gallery</div>
                     </div>
                     
-                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40 border-l border-white/5">
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">React Native</span>
-                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">Firebase</span>
+                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/20 border-l border-white/5">
+                        <div class="flex gap-3 mb-6">
+                            <span class="text-[10px] bg-brandPrimary/10 text-brandPrimary px-3 py-1 rounded-full font-bold uppercase tracking-widest">Lernprojekt</span>
+                            <span class="text-[10px] bg-white/5 text-slate-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Firebase</span>
                         </div>
-                        <h3 class="text-6xl mb-6 uppercase leading-none">Sophie</h3>
-                        <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
-                            KI-gestützte Haustier-Tracking-App. Ein intelligentes Veterinär-System mit AI-Beratung und Echtzeit-Datensynchronisation.
-                        </p>
-                        <div class="flex gap-8 items-center flex-wrap">
-                            <a href="https://sophie-7379.web.app/" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Live Demo</a>
-                            <a href="#" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
+                        <h3 class="text-6xl mb-6 uppercase">Sophie Pet Assistant</h3>
+                        <div class="space-y-4 text-slate-400 text-lg font-light leading-relaxed mb-10">
+                            <p>Dieses Projekt habe ich während meines Lernprozesses entwickelt, um zu verstehen, wie moderne Webanwendungen funktionieren.</p>
+                        </div>
+                        <div class="flex gap-6 items-center">
+                            <a href="https://sophie-7379.web.app/" target="_blank" class="bg-brandPrimary text-brandBg px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition shadow-[0_0_20px_rgba(214,255,77,0.2)]">Live Demo</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proje 2: MATHQUEST (Sabit ve Oynanabilir) -->
-                <div class="project-card rounded-[3rem] flex flex-col md:flex-row-reverse overflow-hidden min-h-[650px] reveal">
-                    <div class="md:w-1/2 p-8 bg-black/40 flex items-center justify-center relative">
-                        <!-- Kaydırma çubuğu olmayan oyun alanı -->
-                        <div class="game-frame-wrapper">
-                            <iframe
-                                src="https://junkieeee.github.io/math-quest/"
-                                class="game-iframe"
-                                title="MathQuest"
-                                scrolling="no" 
-                                style="overflow:hidden;"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                            </iframe>
+                <!-- Proje 2: MATHQUEST (BOYU %290 OLARAK AYARLANDI) -->
+                <div class="project-card rounded-[3rem] flex flex-col md:flex-row-reverse overflow-hidden reveal">
+                    <div class="md:w-1/2 p-8 bg-black/20 flex items-center justify-center">
+                        <div class="game-wrapper">
+                            <div class="game-aspect-ratio">
+                                <iframe
+                                    src="https://junkieeee.github.io/math-quest/"
+                                    class="game-iframe"
+                                    title="MathQuest Game"
+                                    allow="fullscreen"
+                                    scrolling="no">
+                                </iframe>
+                            </div>
                         </div>
-                        <div class="absolute top-4 text-[10px] text-brandPrimary/40 tracking-[0.3em] uppercase">Play Now</div>
                     </div>
                     
-                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/40 border-r border-white/5 text-center md:text-left">
-                        <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
-                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">HTML5 / JS</span>
-                            <span class="text-[11px] bg-brandPrimary/10 text-brandPrimary px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">Game Dev</span>
+                    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-brandSurface/20 border-r border-white/5">
+                        <div class="flex gap-3 mb-6">
+                            <span class="text-[10px] bg-brandPrimary/10 text-brandPrimary px-3 py-1 rounded-full font-bold uppercase tracking-widest">JavaScript Logik</span>
                         </div>
-                        <h3 class="text-6xl mb-6 uppercase leading-none">MathQuest</h3>
-                        <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
-                            Dieses Projekt ist ein interaktives Mathe-Spiel, das ich durch gezieltes AI-Prompting entwickelt habe, um effizienten React-Code und modernes UI-Design zu kombinieren. Während des Prozesses habe ich den Einsatz von Vite und Tailwind CSS vertieft sowie eine automatisierte CI/CD-Pipeline via GitHub Actions implementiert. Besonders wertvoll war die Erfahrung, komplexe technische Anforderungen in präzise Prompts zu übersetzen und plattformübergreifende Pfad-Konfigurationen eigenständig zu lösen. Damit demonstriere ich meine Fähigkeit, künstliche Intelligenz als produktives Werkzeug in modernen Software-Workflows einzusetzen.
-                        </p>
-                        <div class="flex gap-8 items-center justify-center md:justify-start flex-wrap">
-                            <a href="https://junkieeee.github.io/math-quest/" target="_blank" class="bg-brandPrimary text-brandBg px-10 py-4 rounded-full font-bold uppercase text-xs hover:scale-105 transition-transform tracking-widest shadow-[0_0_20px_rgba(214,255,77,0.3)]">Full Screen</a>
-                            <a href="https://github.com/junkieeee/math-quest" target="_blank" class="text-white hover:text-brandPrimary transition text-3xl">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
+                        <h3 class="text-6xl mb-6 uppercase">MathQuest</h3>
+                        <div class="space-y-4 text-slate-400 text-lg font-light leading-relaxed mb-10">
+                            <p>MathQuest ist ein Lernprojekt, das ich erstellt habe, um meine Kenntnisse in JavaScript zu verbessern.</p>
+                            <ul class="list-disc pl-5 space-y-2 text-sm text-slate-500">
+                                <li>Spielmechanik und Interaktion</li>
+                                <li>Fokus auf Programmiergrundlagen</li>
+                            </ul>
+                        </div>
+                        <div class="flex gap-6 items-center">
+                            <a href="https://junkieeee.github.io/math-quest/" target="_blank" class="bg-brandPrimary text-brandBg px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition shadow-[0_0_20px_rgba(214,255,77,0.2)]">Full Screen</a>
                         </div>
                     </div>
                 </div>
@@ -291,90 +280,52 @@
             </div>
         </section>
 
-        <!-- Yetenekler -->
-        <section class="mb-48 text-center reveal">
-            <h2 class="text-4xl text-brandPrimary uppercase mb-16 italic">Core Competencies</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brandPrimary/30 transition">
-                    <i class="fa-brands fa-react text-brandPrimary text-4xl mb-4"></i>
-                    <p class="font-bold uppercase tracking-widest text-xs">React Native</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brandPrimary/30 transition">
-                    <i class="fa-solid fa-fire text-brandPrimary text-4xl mb-4"></i>
-                    <p class="font-bold uppercase tracking-widest text-xs">Firebase</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brandPrimary/30 transition">
-                    <i class="fa-solid fa-robot text-brandPrimary text-4xl mb-4"></i>
-                    <p class="font-bold uppercase tracking-widest text-xs">AI Prompting</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brandPrimary/30 transition">
-                    <i class="fa-brands fa-html5 text-brandPrimary text-4xl mb-4"></i>
-                    <p class="font-bold uppercase tracking-widest text-xs">Web Dev</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- İletişim -->
-        <section id="contact" class="text-center py-32 border-t border-white/5">
-            <h2 class="text-8xl md:text-[12rem] uppercase mb-12 leading-none">Let's <br><span class="text-brandPrimary">Connect</span></h2>
-            <div class="flex flex-wrap justify-center gap-16">
-                <a href="mailto:deniz.uslu1925@gmail.com" class="text-4xl font-bebas group relative overflow-hidden">
-                    Email
-                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
+        <!-- İletişim Bölümü -->
+        <section id="contact" class="text-center py-32 border-t border-white/5 reveal">
+            <h2 class="text-7xl md:text-[10rem] uppercase mb-8 leading-none">I`m ready for <br><span class="text-brandPrimary">Learning!</span></h2>
+            <div class="flex flex-wrap justify-center gap-10 mt-16">
+                <a href="mailto:deniz.uslu1925@gmail.com" class="text-3xl font-bebas hover:text-brandPrimary transition group">
+                    <i class="fa-solid fa-envelope mr-2"></i>Email
                 </a>
-                <a href="#" class="text-4xl font-bebas group relative overflow-hidden">
-                    LinkedIn
-                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
-                </a>
-                <a href="#" class="text-4xl font-bebas group relative overflow-hidden">
-                    GitHub
-                    <span class="block h-[2px] w-0 bg-brandPrimary group-hover:w-full transition-all duration-300"></span>
+                <a href="https://github.com/junkieeee" class="text-3xl font-bebas hover:text-brandPrimary transition group">
+                    <i class="fa-brands fa-github mr-2"></i>GitHub
                 </a>
             </div>
         </section>
 
     </main>
 
-    <footer class="py-16 text-center text-slate-800 text-[10px] tracking-[0.8em] uppercase font-bold">
+    <footer class="py-16 text-center text-slate-800 text-[9px] tracking-[1em] uppercase font-bold">
         Umut Deniz Uslu | 2026
     </footer>
 
     <script>
-        // Reveal Animasyonları
+        // Kaydırma Efekti
         const handleScroll = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(reveal => {
                 const windowHeight = window.innerHeight;
                 const revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 150) {
+                if (revealTop < windowHeight - 50) {
                     reveal.classList.add('active');
                 }
             });
         };
         window.addEventListener('scroll', handleScroll);
-        handleScroll();
-
-        // Slayt Mantığı
-        const initSliders = () => {
-            const containers = document.querySelectorAll('.slider-container');
-            
-            containers.forEach(container => {
+        window.onload = () => {
+            handleScroll();
+            // Slider Mantığı
+            document.querySelectorAll('.slider-container').forEach(container => {
                 const slides = container.querySelectorAll('.slide');
                 if (slides.length <= 1) return;
-
-                let currentIndex = 0;
-                const interval = parseInt(container.getAttribute('data-interval')) || 3000;
-
+                let idx = 0;
                 setInterval(() => {
-                    slides[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    slides[currentIndex].classList.add('active');
-                }, interval);
+                    slides[idx].classList.remove('active');
+                    idx = (idx + 1) % slides.length;
+                    slides[idx].classList.add('active');
+                }, 3000);
             });
         };
-
-        window.onload = initSliders;
     </script>
-
 </body>
 </html>
